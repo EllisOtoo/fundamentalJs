@@ -296,3 +296,5 @@ var myModule = (function() {
 } */
 
 myModule.publicMethod();
+
+console.log('myModule')
