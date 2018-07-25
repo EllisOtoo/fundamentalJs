@@ -270,3 +270,29 @@ console.log(counter.get()) */
 // Object.freeze(iffySample);
 // console.log('Object after freeze: ', iffySample);
 // console.log(iffySample());
+
+var myModule = (function() {
+    'use strict';
+ 
+    var _privateProperty = 'Hello World';
+    var publicProperty = 'I am a public property';
+  
+    function _privateMethod() {
+        console.log(_privateProperty);
+    }
+  
+  	function publicMethod() {
+    	_privateMethod();
+  	}
+     
+    return {
+        publicMethod: publicMethod,
+        publicProperty: publicProperty
+    };
+}());
+  
+/* myModule.publicMethod = function() {
+    console.log('This Module has been changed')
+} */
+
+myModule.publicMethod();
