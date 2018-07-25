@@ -3,14 +3,111 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Testing Git Fundamentals</title>
+    <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+  <!--   <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+<!--     <script src="main.js"></script>
+ -->
+<style>
+    #theCdeBroke {
+        width: 100%;
+    }
+
+    button {
+        padding: 5px;
+        margin: 4px;
+        width: 98%;
+    }
+
+
+     * {
+        margin: 0px;
+    }
+    #firstBox {
+        background-color: lightblue;
+        width: 48%;
+        padding: 5px;
+        position: relative;
+        float: left;
+       }
+ 
+    #secondBox {
+        padding: 5px;
+        background-color: lightblue;
+        width: 48%;
+        position: relative;
+        float: left;
+    }
+
+    #overFlowBlock {
+        margin-top: 10px;
+        width: 300px;
+        height: 100px;
+        float: left; 
+        overflow: hidden;   
+    }
+
+    #overFlowBlock2 {
+        margin-top: 10px;
+        width: 300px;
+        height: 100px;
+        overflow: scroll;
+        float: left;    
+    }
+
+    #motherDiv {
+        overflow: hidden;
+    }
+    #motherDiv2 {
+        overflow: hidden;
+    }
+
+    .readmore {
+        height: 100%;
+    }
+</style>
 </head>
 <body>
-    <div id="container">
-        <p>Hello World</p>
+
+    <div id="wrapper">
+            <div id="motherDiv">
+                    <div id="firstBox">
+                            <p id ='theCdeBroke'>
+                                    hello this is my new laptop
+                            </p>
+                            <button id= 'readmore'>Click Me</button>
+                    </div>
+                    <div id="secondBox">
+                            <p id ='secondP'>
+                                    hello this is my new laptop 
+                            </p>
+                            <button id= 'secondPBut'>Click Me</button>
+                    </div>
+
+            </div>
+           
+            <div style="margin-top: 10px;clear: both;" id="final">
+                
+            </div><br>
+            <div id="motherDiv2">
+                    <div id='overFlowBlock'>
+                            <h3>A Sub Section</h3>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab voluptatem suscipit ratione. Ea impedit nesciunt maxime perspiciatis dolore, inventore dicta deserunt facere saepe, debitis quia eos? Enim odio sequi hic.              
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab voluptatem suscipit ratione. Ea impedit nesciunt maxime perspiciatis dolore, inventore dicta deserunt facere saepe, debitis quia eos? Enim odio sequi hic.              
+                        </div>
+                        <div id='overFlowBlock2'>
+                            <h3>A Sub Section</h3>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab voluptatem suscipit ratione. Ea impedit nesciunt maxime perspiciatis dolore, inventore dicta deserunt facere saepe, debitis quia eos? Enim odio sequi hic.              
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab voluptatem suscipit ratione. Ea impedit nesciunt maxime perspiciatis dolore, inventore dicta deserunt facere saepe, debitis quia eos? Enim odio sequi hic.              
+                        </div>
+                    </div>
+                    <a id='readmoreButton'  href="#">Read more</a>
+            
+    <div style="clear: both; margin-top: 10px"> 
+        <em>The list div above has a clear float css declaration</em>
     </div>
+      </div>
+    <script src='js/mainScript.js'>
+    </script>
 </body>
 </html>
