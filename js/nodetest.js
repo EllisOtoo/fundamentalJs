@@ -372,4 +372,5 @@ function delayAss () {
 
 
 
-let j = 'Hello World'
+let j = 'Hello World';
+let xg = 'Hello World';
