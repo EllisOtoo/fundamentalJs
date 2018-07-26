@@ -89,8 +89,6 @@ let x = !isNaN(true) ? 'hello': ( false ? 'Returns This if True': 'Returns this 
 // Changed order of operations || returns :: 
 // let x = isNaN(true) ? 'hello': 100  ? 'Returns This if True': 'Returns this if false';
 x = `Its Sunny is in this Scope`;
-
-
 console.log('The Value of X  is: ', x);
 
 if ( /* Boolean(x) == true  */ '') {
@@ -193,15 +191,10 @@ function testScoping(arg1)  {
     }
     return functionObject.name;
 }
-
-
 console.log(testScoping('true'));
 console.log(james);
 console.log(janeName);
 // console.log(james)
-
-
-
 var globeTestvariable =  'Ellis is here'; // Attached to global object
 let globeTestvariable2 =  'Ellis is here'; // Not attached to global object 
 console.log('Gloablew variable test: ',window.globeTestvariable);
@@ -296,3 +289,12 @@ var myModule = (function() {
 } */
 
 myModule.publicMethod();
+let mainObject = {
+    value : 'Ellis Otoo'
+}
+
+function thisFunction (name) {
+    return this.value + name;
+}
+
+console.log(thisFunction.call(mainObject, 'The Coder'));
