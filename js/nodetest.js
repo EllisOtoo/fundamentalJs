@@ -369,3 +369,7 @@ function delayAss () {
 function delayAss () {
     let x = 'Hello'
 }
+
+
+
+let j = 'Hello World'
