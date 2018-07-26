@@ -358,3 +358,9 @@ let newObject = {
 }
 
 console.log(newObject);
+
+
+
+function delayAss () {
+    let x = 'Hello'
+}
