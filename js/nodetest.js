@@ -242,6 +242,12 @@ let counter =(
 
 // value  = 12;
 counter.get()
+
+// Assigning get method with new string :: 
+counter.get = 'Hello';
+
+console.log('Get After assignment: ', counter.get)
+
 console.log(counter.set(99))
 console.log(counter.arrow())
 /* counter.increment();
@@ -300,3 +306,55 @@ function thisFunction (name) {
 console.log(thisFunction.call(mainObject, 'The Coder'));
 
 console.log('myModule')
+
+
+
+function testScopes( name = prompt('What is your Name?') ) {
+    let  sharedOccupation  = ' Student';
+    return (function () {
+        return name +  sharedOccupation;
+    })();
+} 
+
+
+function askStudentNames() {
+    let allStudents = [];
+    // Fill Array for all Students
+    for(let i = 0; i < 10; i++) {
+        allStudents[i] = testScopes();
+    }
+    return allStudents
+}
+
+function justTaggedLiteral( strings, ...values) {
+    // return 'taggedLiteral Function Return Values: ' + strings[0];
+    return values[0]
+}
+
+let sampleFirstVar = 'First Var 1', sampleFirstVar2 = 'First Var 2';
+
+
+let [,,,,,...remainingValues] = askStudentNames();
+// let remainingValuesString = remainingValues.join('');
+
+console.log(justTaggedLiteral`This String instead of the return Value of the Join method on the "Remaining Values"  ${remainingValues.join('')} ${sampleFirstVar} hello World Im the last String`);
+// remainingValues  = remainingValues.join('');
+console.log(`Remaining values after Join Method: `,remainingValues )
+console.log('These are the remaining values apart from the first: ', remainingValues);
+
+
+// console.log(askStudentNames());
+
+
+
+// console.log(basedOnTestScopes());
+
+// let basedOnClosure = basedOnTestScopes();
+
+
+let newObject = {
+    // basedOnClosure,
+    ...myModule
+}
+
+console.log(newObject);
