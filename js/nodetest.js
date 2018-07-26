@@ -298,3 +298,5 @@ function thisFunction (name) {
 }
 
 console.log(thisFunction.call(mainObject, 'The Coder'));
+
+console.log('myModule')
