@@ -333,14 +333,15 @@ function justTaggedLiteral( strings, ...values) {
 
 let sampleFirstVar = 'First Var 1', sampleFirstVar2 = 'First Var 2';
 
+// Dont run function to ask for names::
+// let [,,,,,...remainingValues] = askStudentNames();
 
-let [,,,,,...remainingValues] = askStudentNames();
 // let remainingValuesString = remainingValues.join('');
 
-console.log(justTaggedLiteral`This String instead of the return Value of the Join method on the "Remaining Values"  ${remainingValues.join('')} ${sampleFirstVar} hello World Im the last String`);
+/* console.log( justTaggedLiteral`This String instead of the return Value of the Join method on the "Remaining Values"  ${remainingValues.join('')} ${sampleFirstVar} hello World Im the last String`);
 // remainingValues  = remainingValues.join('');
 console.log(`Remaining values after Join Method: `,remainingValues )
-console.log('These are the remaining values apart from the first: ', remainingValues);
+console.log('These are the remaining values apart from the first: ', remainingValues); */
 
 
 // console.log(askStudentNames());
@@ -352,27 +353,123 @@ console.log('These are the remaining values apart from the first: ', remainingVa
 // let basedOnClosure = basedOnTestScopes();
 
 
+let newOwnerObejct = {
+    // lsiting the properties of this owner object to be 
+    title: 'Onwer Object Title',
+    lifeSpan: 'As far as its Called'
+}
+
 let newObject = {
-    // basedOnClosure,
-    ...myModule
-}
-
-console.log(newObject);
-
-
-
-function delayAss () {
-    let x = 'Hello'
+    title: 'Mr.',
+    color: 'Pink',
+    ...myModule,
+    testMethod : function( status) {
+        return this.title +'The Mthod Status  is ' +  status
+    }
 }
 
 
-function delayAss () {
-    let x = 'Hello'
+console.log(newObject.testMethod.call(newOwnerObejct, 'Done'))
+
+// console.log(newObject);
+
+function callFunction(name, secondName, age) {
+    return this.title + name + secondName+ 'My age is '+age
+}
+
+// console.log(callFunction.call(newObject, ' Ellis', 'Otoo'))
+console.log(callFunction.apply(newObject, [' Ellis', 'Otoo', 33]))
+
+name =  'Jayla'
+// Closure Understanding :: 
+function sayHello(name) {
+        // First Scope
+    return function() {
+        // Seccond Level Scope :: Nested Scope
+        console.log('Howdy '+name)
+        return function () {
+            // name = 'Changed Name'
+            // Third Level Scope :: Nested Scope
+                return 'The name of the two level nested function: '+ name + this.color
+            };
+    }
 }
 
 
+let sayHelloToAnna =  sayHello('Anna');
+let sayHello2 =  sayHelloToAnna();
+let sayHello3 =  sayHello2.call(newObject);
+console.log(sayHello3)
 
-let j = 'Hello World';
-let xg   = 'Hello World';
 
 
+// console.log(sayHelloToAnna());
+
+function getCount() {
+    alert('Get Count got evaluated first'); // Expressions get normally get evealuated from left to write, if there are no brackets for precedence
+    return 1;
+}
+
+function testResult() {
+    if( getCount() != 1 ) {
+        return `Count isnt equal to 1`
+    } else {
+        alert(`Undefined`)
+    }
+}
+
+let interpolation  = `${(function(){
+    alert('Hello, Im first ')
+})()}And James said, ${  ( getCount()==1 ) ? 'Yes, You are real': 'No You are a liar' }, ${ testResult() }`
+
+console.log(interpolation);
+
+
+alert('Hello world')
+
+function Person (name, age, title) {
+    this.name = name;
+    this.age =  age;
+    this.title = title;
+}
+
+let sampleNewObject = new Person();
+console.log(sampleNewObject);
+
+
+function Myfunction (name) {
+    console.log('This is a function')
+    this.name = name;
+}
+
+let lastSample =  {
+    name: 'Ellis' 
+}
+
+lastSample = new String('  Hello World  ')
+// let ObjetfromMyFunction  =  new Myfunction('Sample Function');
+// console.log(ObjetfromMyFunction)
+console.log(lastSample)
+// console.log(ObjetfromMyFunction.name)
+console.log(lastSample.toString().trim().length.toFixed(2));
+
+function tryCatch () {
+    let a = undefined;
+    console.log(a.name);
+    console.log('You wont see this line if the line before executes')
+}
+
+function tryCatchTest () {
+    try {    
+        let a = undefined;
+        console.log(a.name);
+        console.log('You wont see this line if the line before executes')    
+    } catch (error) {
+        console.log( `I caught an error,  ${error.message}`)    
+    } finally {
+        console.log(`This would Happen, No matter what`)
+    }
+}
+
+// tryCatch();
+tryCatchTest();
