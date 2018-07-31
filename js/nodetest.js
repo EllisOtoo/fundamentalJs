@@ -474,3 +474,5 @@ function tryCatchTest () {
 
 // tryCatch();
 tryCatchTest();
+
+alert('Hello World')
